@@ -1,0 +1,57 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@title</title>
+    <link rel='shortcut icon' type='image/png' href='@routes.Assets.at("images/favicon.png")'>
+    <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))'>
+    <link rel='stylesheet' href='@routes.Assets.at("stylesheets/main.css")'>
+    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("d3.min.js"))'></script>
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/nmap.js")'></script>
+    <style>
+    body {
+        margin-top: 50px;
+    }
+    </style>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="@routes.Application.index()">NMap Demo</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<form id="caseSelectionForm" class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<select id="caseSelectionFormSelect" type="text" class="form-control" placeholder="Search">
+							<option value="2">Example 1</option>
+							<option value="3">Example 2</option>
+							<option value="4">Example 3</option>
+							<option value="5">Example 4</option>
+							<option value="6">Example 5</option>
+							<option value="7">Example 6</option>
+							<option value="8">Example 7</option>
+							<option value="9">Example 8</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-default">Load</button>
+				</form>
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="@routes.Application.about()">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	@content
+
+</body>
+</html>
