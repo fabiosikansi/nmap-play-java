@@ -10,7 +10,6 @@ import java.util.List;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import model.nmap.BoundingBox;
-import model.nmap.Element;
 import model.nmap.Box;
 import model.nmap.Paper;
 
@@ -28,13 +27,13 @@ public class Application extends Controller {
     	ObjectNode result = Json.newObject();
 		Paper nmap = new Paper("public/files/caso0" + caseNumber + ".csv",visualSpaceWidth,visualSpaceHeight);
 		List<BoundingBox> nmapBoundingBoxes = nmap.execute();
-		List<Element> nmapElements = nmap.getElements();
+//		List<Element> nmapElements = nmap.getElements();
 		List<Box> nmapBoxes = new ArrayList<Box>();
         for (BoundingBox box : nmapBoundingBoxes) {
         	nmapBoxes.add(box.toBox());
         }
 		result.put("boxes", Json.toJson(nmapBoxes));
-		result.put("points", Json.toJson(nmapElements));
+//		result.put("points", Json.toJson(nmapElements));
 		
 		return ok(result);
     }

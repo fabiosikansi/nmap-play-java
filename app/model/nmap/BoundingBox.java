@@ -32,7 +32,7 @@ public class BoundingBox extends Rectangle2D.Float {
     }
     
     public Box toBox() {
-    	Box b = new Box(this.x, this.y, this.width, this.height);
+    	Box b = new Box(this.x, this.y, this.width, this.height, this.element.getKlass(),this.element.x,this.element.y);
     	return b;
     }
 }
